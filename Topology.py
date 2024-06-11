@@ -270,7 +270,7 @@ def find_topologies_operation_compatible(
     return set(result)
 
 
-def shit(
+def found_nbhs_forall_nbh_of_product(
     points: list[int],
     topology: set[frozenset[int]],
     operation: Operation,
@@ -293,6 +293,6 @@ def is_topology_operation_compatible(
     prod = [[*points] for points in product(X, repeat=operation.arity)]
     for points in prod:
         points_product = operation[points]
-        if not shit(points, topology, operation, points_product):
+        if not found_nbhs_forall_nbh_of_product(points, topology, operation, points_product):
             return None
     return topology.copy()
